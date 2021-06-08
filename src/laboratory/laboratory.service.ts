@@ -1,17 +1,21 @@
 import { Injectable } from '@nestjs/common';
-import { LaboratoryDto } from './dtos/laboratory.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { LaboratoryEntity } from './interfaces/laboratory.entity';
 import { Laboratory } from './interfaces/laboratory.interface';
 
 @Injectable()
 export class LaboratoryService {
-  private laboratories: LaboratoryDto[] = [];
+  constructor(
+    @InjectRepository(LaboratoryEntity)
+    private laboratoryRepository: Repository<LaboratoryEntity>,
+  ) {}
 
-  findAll(): LaboratoryDto[] {
-    return this.laboratories;
+  async findAll(): Promise<LaboratoryEntity[]> {
+    return await this.laboratoryRepository.find();
   }
 
-  create(laboratory: LaboratoryDto): LaboratoryDto {
-    this.laboratories.push(laboratory);
-    return laboratory;
+  async create(laboratory: Laboratory): Promise<LaboratoryEntity> {
+    return await this.laboratoryRepository.save(laboratory);
   }
 }
