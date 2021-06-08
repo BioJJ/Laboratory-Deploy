@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ExamEntity } from 'src/exam/interfaces/exam.entity';
 import { LaboratoryEntity } from 'src/laboratory/interfaces/laboratory.entity';
 
 @Module({
@@ -10,7 +11,7 @@ import { LaboratoryEntity } from 'src/laboratory/interfaces/laboratory.entity';
       username: 'postgres',
       password: 'laboratorydb',
       database: 'laboratorydb',
-      entities: [LaboratoryEntity],
+      entities: [LaboratoryEntity, ExamEntity],
       synchronize: true,
     }),
   ],
