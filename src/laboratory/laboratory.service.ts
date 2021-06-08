@@ -1,15 +1,16 @@
 import { Injectable } from '@nestjs/common';
+import { LaboratoryDto } from './dtos/laboratory.dto';
 import { Laboratory } from './interfaces/laboratory.interface';
 
 @Injectable()
 export class LaboratoryService {
-  private laboratories: Laboratory[] = [];
+  private laboratories: LaboratoryDto[] = [];
 
-  findAll(): Laboratory[] {
+  findAll(): LaboratoryDto[] {
     return this.laboratories;
   }
 
-  create(laboratory: Laboratory): Laboratory {
+  create(laboratory: LaboratoryDto): LaboratoryDto {
     this.laboratories.push(laboratory);
     return laboratory;
   }
