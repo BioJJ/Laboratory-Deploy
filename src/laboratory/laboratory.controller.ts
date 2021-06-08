@@ -1,4 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
+import { ApiBody } from '@nestjs/swagger';
+import { LaboratoryDto } from './dtos/laboratory.dto';
 import { Laboratory } from './interfaces/laboratory.interface';
 import { LaboratoryService } from './laboratory.service';
 
@@ -7,11 +9,12 @@ export class LaboratoryController {
   constructor(private readonly laboratoryService: LaboratoryService) {}
 
   @Get()
-  index(): Laboratory[] {
+  index(): LaboratoryDto[] {
     return this.laboratoryService.findAll();
   }
   @Post()
-  create(@Body() laboratory: Laboratory): Laboratory {
+  @ApiBody({ type: LaboratoryDto })
+  create(@Body() laboratory: LaboratoryDto): LaboratoryDto {
     return this.laboratoryService.create(laboratory);
   }
 }
