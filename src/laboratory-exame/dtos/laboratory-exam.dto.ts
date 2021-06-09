@@ -5,8 +5,8 @@ export class LaboratoryExamDto {
   id: number;
 
   @ApiProperty()
-  laboratoryYd: number;
+  laboratory?: number;
 
   @ApiProperty()
-  examId: number;
+  exam?: number;
 }
