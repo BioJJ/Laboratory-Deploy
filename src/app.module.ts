@@ -7,7 +7,12 @@ import { DatabaseModule } from './database/database.module';
 import { LaboratoryExameModule } from './laboratory-exame/laboratory-exame.module';
 
 @Module({
-  imports: [ExamModule, LaboratoryModule, DatabaseModule, LaboratoryExameModule],
+  imports: [
+    ExamModule,
+    LaboratoryModule,
+    DatabaseModule,
+    LaboratoryExameModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
