@@ -8,7 +8,7 @@ import { LaboratoryEntity } from 'src/laboratory/interfaces/laboratory.entity';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: 'localhost' ? 'localhost' : 'postgres_db',
       username: 'postgres',
       password: 'laboratorydb',
       database: 'laboratorydb',
