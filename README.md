@@ -35,14 +35,18 @@ $ npm install
 ## Running the app
 
 ```bash
+# Production
+$ docker-compose up -d
+
+# API documentation (Swagger)
+$ localhost:3000/api
+
 # development
 $ npm run start
 
 # watch mode
 $ npm run start:dev
 
-# production mode
-$ npm run start:prod
 ```
 
 ## Test
